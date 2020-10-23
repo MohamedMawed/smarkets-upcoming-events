@@ -1,0 +1,36 @@
+.main { 
+  overflow: hidden;
+  flex: 1;
+  box-sizing: inherit;
+  border-radius: 8px;
+  background: #eaeff1;
+}
+
+.filter-dropdown {
+  float: right;
+  margin-bottom: 20px !important;
+}
+
+.content-paper {
+  margin: auto;
+  flex: 1;
+  max-width: 800px;
+  margin-top: 5vh;
+  background: #fff;
+  padding: 20px;
+  border-radius:8px;
+  border-width:.5px;
+  border-style:'solid';
+  border-color: rgba(0,0,0,0.14);
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+
+footer {
+    bottom: 0;
+    padding: 16px 24px;
+    text-align: center;
+}
+
+.row-container {
+  margin-bottom: 20px;
+}
