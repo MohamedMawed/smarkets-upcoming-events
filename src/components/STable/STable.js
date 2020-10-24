@@ -26,12 +26,12 @@ const STable = ({ url, columns }) => {
 
 STable.propTypes = {
   url: PropTypes.string.isRequired,
-  columns: PropTypes.objectOf({
+  columns: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     dataIndex: PropTypes.string,
     key: PropTypes.string,
     render: PropTypes.func,
-  }).isRequired,
+  })).isRequired,
 };
 
 export default STable;

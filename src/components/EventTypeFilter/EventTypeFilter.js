@@ -9,7 +9,9 @@ const { Option } = Select;
 
 const EventTypeFilter = ({ onChange }) => (
   <Select
+    data-testid="types-select"
     showSearch
+    virtual={false}
     allowClear
     style={{ minWidth: 200 }}
     placeholder={upcomingEvents.filterPlaceholder}
