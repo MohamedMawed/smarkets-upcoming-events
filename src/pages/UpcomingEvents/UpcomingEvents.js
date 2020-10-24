@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import EventTypeFilter from '../../components/EventTypeFilter/EventTypeFilter';
 import STable from '../../components/STable/STable';
 import strings from '../../constants/strings';
+import { baseUrl } from '../../constants/appConstants';
 
 const { main, upcomingEvents } = strings;
 const columns = [
@@ -41,7 +42,7 @@ function UpcomingEvents() {
           </Row>
           <STable
             columns={columns}
-            url={`https://cors-anywhere.herokuapp.com/https://api.smarkets.com/v3/events/?state=upcoming${type ? `&type=${type}` : ''}`}
+            url={`${baseUrl}v3/events/?state=upcoming${type ? `&type=${type}` : ''}`}
           />
         </div>
       </main>

@@ -47,4 +47,7 @@ const eventTypes = [
   'tv_entertainment',
 ];
 
+const redirectUrl = 'https://cors-anywhere.herokuapp.com/';
+export const baseUrl = `${redirectUrl}https://api.smarkets.com/`;
+
 export { eventTypes as default };
