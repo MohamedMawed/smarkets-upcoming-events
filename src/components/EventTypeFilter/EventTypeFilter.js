@@ -2,14 +2,17 @@ import React from 'react';
 import { Select } from 'antd';
 import PropTypes from 'prop-types';
 import eventTypes from '../../constants';
+import strings from '../../constants/strings';
 
+const { upcomingEvents } = strings;
 const { Option } = Select;
 
 const EventTypeFilter = ({ onChange }) => (
   <Select
     showSearch
+    allowClear
     style={{ minWidth: 200 }}
-    placeholder="Select event type"
+    placeholder={upcomingEvents.filterPlaceholder}
     optionFilterProp="children"
     onChange={onChange}
     filterOption={(input, option) => option

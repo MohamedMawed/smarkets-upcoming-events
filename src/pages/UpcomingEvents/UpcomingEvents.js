@@ -1,25 +1,27 @@
 import './UpcomingEvents.css';
 import {
-  Table, PageHeader, Typography, Row, Checkbox,
+  PageHeader, Typography, Row, Checkbox,
 } from 'antd';
-import React, { useEffect, useState } from 'react';
-import Axios from 'axios';
+import React, { useState } from 'react';
 import EventTypeFilter from '../../components/EventTypeFilter/EventTypeFilter';
+import STable from '../../components/STable/STable';
+import strings from '../../constants/strings';
 
+const { main, upcomingEvents } = strings;
 const columns = [
   {
-    title: 'Name',
+    title: upcomingEvents.tableColumns.name,
     dataIndex: 'name',
     key: 'name',
   },
   {
-    title: 'Bets allowed',
+    title: upcomingEvents.tableColumns.betsAllowed,
     dataIndex: 'bet_allowed',
     key: 'bet_allowed',
     render: (value) => <Checkbox checked={value} />,
   },
   {
-    title: 'Start date',
+    title: upcomingEvents.tableColumns.startDate,
     dataIndex: 'start_date',
     key: 'start_date',
   },
@@ -27,33 +29,24 @@ const columns = [
 
 function UpcomingEvents() {
   const [type, setType] = useState('');
-  const [tableData, setTableData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const loadData = async () => {
-    setLoading(true);
-    const url = `https://cors-anywhere.herokuapp.com/https://api.smarkets.com/v3/events/?state=upcoming${type ? `&type=${type}` : ''}`;
 
-    const response = await Axios.get(url);
-    setTableData(response.data.events);
-    setLoading(false);
-  };
-  useEffect(() => {
-    loadData();
-  }, [type]);
   return (
     <>
-      <PageHeader title="Smarkets Events" />
+      <PageHeader title={main.title} />
       <main className="main">
         <div className="content-paper">
           <Row className="row-container" align="middle" justify="space-between">
-            <Typography>Upcoming Events</Typography>
+            <Typography>{upcomingEvents.title}</Typography>
             <EventTypeFilter onChange={(e) => setType(e)} />
           </Row>
-          <Table rowKey={(r) => r.id} loading={loading} dataSource={tableData} columns={columns} />
+          <STable
+            columns={columns}
+            url={`https://cors-anywhere.herokuapp.com/https://api.smarkets.com/v3/events/?state=upcoming${type ? `&type=${type}` : ''}`}
+          />
         </div>
       </main>
       <footer>
-        <Typography>© Copyright 2020 Smarkets Events</Typography>
+        <Typography>{main.copyRights}</Typography>
       </footer>
     </>
   );
