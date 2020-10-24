@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "eslint": "./node_modules/.bin/eslint --ext .js src && react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
