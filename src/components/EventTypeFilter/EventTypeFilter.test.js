@@ -20,10 +20,6 @@ test('Upcoming events select filter', async () => {
   expect(getByText('American football match')).toBeInTheDocument();
   fireEvent.click(getByText('American football match'));
   expect(onChange).toHaveBeenCalledTimes(1);
-  expect(onChange).toHaveBeenCalledWith('american_football_match', {
-    children: 'American football match',
-    key: 'american_football_match',
-    value: 'american_football_match',
-  });
+  expect(onChange).toHaveBeenCalledWith('american_football_match');
   await act(() => promise);
 });

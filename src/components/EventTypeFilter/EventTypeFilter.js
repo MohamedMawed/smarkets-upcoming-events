@@ -16,7 +16,9 @@ const EventTypeFilter = ({ onChange }) => (
     style={{ minWidth: 200 }}
     placeholder={upcomingEvents.filterPlaceholder}
     optionFilterProp="children"
-    onChange={onChange}
+    onChange={(value) => {
+      onChange(value);
+    }}
     filterOption={(input, option) => option
       .children
       .toLowerCase().indexOf(input.toLowerCase()) >= 0}
